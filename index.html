@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bronderbility Music</title>
+<meta name="description" content="Bronderbility Music: independent label and beat store. Trap, boom bap, industrial / EBM, nu-disco / G-funk. Beats, loops, samples and licenses.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Bronderbility Music">
+<meta property="og:description" content="Raw sounds for a dystopian tomorrow. Beats, loops, samples, licenses.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Martian+Mono:wdth,wght@75..112.5,200..500&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="skip" href="#beats">Skip to beats</a>
+
+<!-- ================= HEADER ================= -->
+<header class="header" id="header">
+  <a class="logo" href="#home" data-scramble>Bronderbility Music</a>
+  <nav class="nav" aria-label="Main">
+    <a class="nav__link is-active" href="#home" data-nav="home" data-scramble>Home</a>
+    <a class="nav__link" href="#beats" data-nav="beats" data-scramble>Beats</a>
+    <a class="nav__link" href="#store" data-nav="store" data-scramble>Store</a>
+    <a class="nav__link" href="#about" data-nav="about" data-scramble>About</a>
+    <a class="nav__link" href="#contact" data-nav="contact" data-scramble>Contact</a>
+  </nav>
+  <div class="header__tools">
+    <button class="cart-btn" id="cartBtn" type="button" aria-label="Open cart" aria-controls="cart">
+      <span class="cart-btn__label">Cart</span><span class="cart-btn__count" id="cartCount">[0]</span>
+    </button>
+    <button class="eq-btn" id="eqBtn" type="button" aria-label="Play"><canvas id="eqCanvas"></canvas></button>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================= MOBILE MENU ================= -->
+<div class="menu" id="menu" aria-hidden="true">
+  <nav class="menu__nav" aria-label="Mobile">
+    <a class="menu__link" href="#home"><span class="menu__label">Home</span><span class="menu__meta">Player</span></a>
+    <a class="menu__link" href="#beats"><span class="menu__label">Beats</span><span class="menu__meta" data-count-beats>13 beats</span></a>
+    <a class="menu__link" href="#genres"><span class="menu__label">Genres</span><span class="menu__meta">4 directions</span></a>
+    <a class="menu__link" href="#store"><span class="menu__label">Store</span><span class="menu__meta">Licenses / kits</span></a>
+    <a class="menu__link" href="#about"><span class="menu__label">About</span><span class="menu__meta">Label / studio</span></a>
+    <a class="menu__link" href="#contact"><span class="menu__label">Contact</span><span class="menu__meta">Bookings</span></a>
+  </nav>
+  <div class="menu__foot">
+    <canvas class="menu__line" id="menuLine"></canvas>
+    <div class="menu__row"><div class="socials" data-socials></div><span>Make noise / stay human</span></div>
+  </div>
+</div>
+
+<main id="main">
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="home" aria-label="Intro">
+    <div class="hero__top">
+      <p class="hero__side hero__side--left">Raw sounds<br>for a<br>dystopian<br>tomorrow</p>
+      <div class="hero__center">
+        <p class="hero__eyebrow" id="heroEyebrow">Industrial / EBM / Dark electronic</p>
+        <h1 class="hero__title" id="heroTitle">
+          <span class="glitch" data-text="Bronderbility">Bronderbility</span>
+          <span class="glitch" data-text="Music">Music</span>
+        </h1>
+        <p class="hero__sub">Soundtracks for a colder world</p>
+      </div>
+      <div class="hero__side hero__side--right">
+        <span class="dash"></span>
+        <ul class="hero__list">
+          <li><a href="#beats" data-scramble>Beats</a></li>
+          <li><a href="#kits" data-scramble>Loops</a></li>
+          <li><a href="#kits" data-scramble>Samples</a></li>
+          <li><a href="#licenses" data-scramble>Licenses</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="hero__wave" id="heroWave">
+      <canvas id="heroCanvas" aria-label="Waveform of the current beat. Click to seek."></canvas>
+      <span class="hero__tip" id="waveTip" hidden>00:00</span>
+    </div>
+
+    <div class="player" id="player">
+      <button class="player__cover glitch-img" id="playerCover" type="button" aria-label="Play">
+        <img id="playerImg" alt="" width="96" height="96">
+      </button>
+      <div class="player__body">
+        <div class="player__meta">
+          <div class="player__titles">
+            <p class="player__title glitch" id="playerTitle" data-text="Rituals of Silence">Rituals of Silence</p>
+            <p class="player__artist" id="playerArtist">Bronderbility</p>
+          </div>
+          <p class="player__time"><span id="playerCur">00:00</span> / <span id="playerDur">03:48</span></p>
+        </div>
+        <div class="progress" id="playerProgress" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <span class="progress__fill"></span><span class="progress__knob"></span>
+        </div>
+      </div>
+      <div class="player__controls">
+        <button class="ctrl" type="button" data-action="prev" aria-label="Previous beat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14"/><path d="M19 5 9 12l10 7z"/></svg>
+        </button>
+        <button class="ctrl ctrl--play" type="button" data-action="toggle" aria-label="Play">
+          <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15L19.5 12z"/></svg>
+          <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14"/><path d="M16 5v14"/></svg>
+        </button>
+        <button class="ctrl" type="button" data-action="next" aria-label="Next beat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14"/><path d="M5 5l10 7-10 7z"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BEAT STORE ================= -->
+  <section class="section store" id="beats" aria-labelledby="beatsTitle">
+    <header class="sec-head store__head">
+      <h2 class="sec-head__title" id="beatsTitle"><span class="glitch" data-text="Beat store">Beat store</span></h2>
+      <span class="dash"></span>
+      <p class="sec-head__text">Premium beats and loops for your next project. Trap. Industrial. Boom bap. Nu-disco.</p>
+      <button class="link-arrow store__browse" type="button" data-browse>Browse all <span aria-hidden="true">→</span></button>
+    </header>
+
+    <div class="store__main">
+      <div class="filters" role="group" aria-label="Filter by genre" id="filters"></div>
+      <ol class="tracks" id="trackList"></ol>
+      <button class="link-arrow tracks__more" type="button" data-browse>Browse all <span aria-hidden="true">→</span></button>
+    </div>
+
+    <figure class="store__visual">
+      <div class="glitch-img store__img" id="storeVisual"><img alt="Industrial skyline under a storm sky, cut by a red glitch line" id="storeImg"></div>
+      <span class="dash"></span>
+      <figcaption class="coords" id="coords">52.5200° N 13.4050° E</figcaption>
+      <span class="dash"></span>
+    </figure>
+  </section>
+
+  <!-- ================= SIGNAL MONITOR ================= -->
+  <section class="section split" id="signal" aria-labelledby="signalTitle">
+    <header class="sec-head">
+      <h2 class="sec-head__title" id="signalTitle"><span class="glitch" data-text="Signal monitor">Signal monitor</span></h2>
+      <span class="dash"></span>
+      <p class="sec-head__text">Live spectrum of whatever is playing. 2048-point FFT, 30 Hz to 16 kHz, log scale.</p>
+      <dl class="readouts">
+        <div><dt>Source</dt><dd id="roSource">Standby</dd></div>
+        <div><dt>Tempo</dt><dd id="roBpm">—</dd></div>
+        <div><dt>Key</dt><dd id="roKey">—</dd></div>
+        <div><dt>RMS</dt><dd id="roRms">−∞ dBFS</dd></div>
+        <div><dt>Peak</dt><dd id="roPeak">−∞ dBFS</dd></div>
+      </dl>
+    </header>
+    <div class="signal">
+      <div class="signal__bar">
+        <span class="signal__status" id="sigStatus"><i></i>Standby</span>
+        <button class="btn-line" type="button" id="sigPlay">Play signal</button>
+      </div>
+      <canvas class="signal__spectrum" id="spectrum" aria-label="Spectrum analyzer"></canvas>
+      <div class="signal__axis" id="axis" aria-hidden="true"></div>
+      <canvas class="signal__scope" id="scope" aria-label="Oscilloscope"></canvas>
+    </div>
+  </section>
+
+  <!-- ================= GENRES ================= -->
+  <section class="section split" id="genres" aria-labelledby="genresTitle">
+    <header class="sec-head">
+      <h2 class="sec-head__title" id="genresTitle"><span class="glitch" data-text="Sound directions">Sound directions</span></h2>
+      <span class="dash"></span>
+      <p class="sec-head__text">Four palettes, one cold signal. Every beat in the store belongs to one of them.</p>
+    </header>
+    <div class="genres" id="genreGrid"></div>
+  </section>
+
+  <!-- ================= STORE: LICENSES + KITS ================= -->
+  <section class="section split" id="store" aria-labelledby="storeTitle">
+    <header class="sec-head">
+      <h2 class="sec-head__title" id="storeTitle"><span class="glitch" data-text="Licenses">Licenses</span></h2>
+      <span class="dash"></span>
+      <p class="sec-head__text">Pick a license once, then add beats with the plus button. You can change it per beat in the cart.</p>
+    </header>
+    <div class="store-body">
+      <div class="licenses" id="licenses"></div>
+      <div class="kits-block" id="kits">
+        <div class="kits-head">
+          <h3 class="kits-head__title">Sound kits</h3>
+          <p class="kits-head__text">Loops and one-shots cut from the same sessions.</p>
+        </div>
+        <div class="kits" id="kitGrid"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="section split" id="about" aria-labelledby="aboutTitle">
+    <header class="sec-head">
+      <h2 class="sec-head__title" id="aboutTitle"><span class="glitch" data-text="Label / studio">Label / studio</span></h2>
+      <span class="dash"></span>
+      <p class="sec-head__text">Independent. Analog in spirit, digital in damage.</p>
+    </header>
+    <div class="about">
+      <p class="about__lead">We build raw, cold, physical sound for artists who refuse to sound like everyone else.</p>
+      <p class="about__text">Bronderbility Music is a label and production studio working across four directions: trap with distorted 808s, dusty boom bap, industrial and EBM machine rhythms, and the melodic side of nu-disco and G-funk. Every beat leaves the studio mixed, with stems on request.</p>
+      <dl class="stats" id="stats">
+        <div><dt>Sound directions</dt><dd>04</dd></div>
+        <div><dt>Beats in store</dt><dd id="statBeats">13</dd></div>
+        <div><dt>Sound kits</dt><dd id="statKits">03</dd></div>
+        <div><dt>Master quality</dt><dd>24-bit</dd></div>
+      </dl>
+      <ul class="services">
+        <li><button type="button" class="service" data-subject="Custom beat"><span>Custom beats</span><small>Made to your reference</small><i aria-hidden="true">→</i></button></li>
+        <li><button type="button" class="service" data-subject="Mixing / mastering"><span>Mixing / mastering</span><small>Vocals over our beats or yours</small><i aria-hidden="true">→</i></button></li>
+        <li><button type="button" class="service" data-subject="Sound design"><span>Sound design</span><small>Kits, intros, sonic logos</small><i aria-hidden="true">→</i></button></li>
+        <li><button type="button" class="service" data-subject="Label demo"><span>Label demos</span><small>Send us your music</small><i aria-hidden="true">→</i></button></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section split" id="contact" aria-labelledby="contactTitle">
+    <header class="sec-head">
+      <h2 class="sec-head__title" id="contactTitle"><span class="glitch" data-text="Contact">Contact</span></h2>
+      <span class="dash"></span>
+      <p class="sec-head__text">Bookings, custom beats, exclusive rights, label demos.</p>
+      <div class="mail">
+        <span class="mail__addr" id="mailAddr">hello@bronderbility.com</span>
+        <button class="btn-line btn-line--small" type="button" id="copyMail">Copy</button>
+      </div>
+      <div class="socials socials--col" data-socials></div>
+    </header>
+    <form class="form" id="contactForm" novalidate>
+      <div class="field">
+        <label for="fName">Name</label>
+        <input id="fName" name="name" type="text" autocomplete="name" placeholder="Your artist name" required>
+      </div>
+      <div class="field">
+        <label for="fEmail">Email</label>
+        <input id="fEmail" name="email" type="email" autocomplete="email" placeholder="you@domain.com" required>
+      </div>
+      <div class="field field--full">
+        <label for="fSubject">Subject</label>
+        <select id="fSubject" name="subject">
+          <option>Custom beat</option>
+          <option>Exclusive license</option>
+          <option>Mixing / mastering</option>
+          <option>Sound design</option>
+          <option>Label demo</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field field--full">
+        <label for="fMessage">Message</label>
+        <textarea id="fMessage" name="message" rows="5" placeholder="References, deadline, budget" required></textarea>
+      </div>
+      <div class="form__foot">
+        <p class="form__status" id="formStatus" role="status"></p>
+        <button class="btn" type="submit">Send message <span aria-hidden="true">→</span></button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <canvas class="footer__line" id="footerLine" aria-hidden="true"></canvas>
+  <div class="footer__row">
+    <div class="socials" data-socials></div>
+    <span class="footer__motto">Make noise / stay human</span>
+  </div>
+  <div class="footer__row footer__row--small">
+    <span>© <span id="year">2026</span> Bronderbility Music</span>
+    <a href="#home" class="link-arrow">Back to top <span aria-hidden="true">↑</span></a>
+  </div>
+</footer>
+
+<!-- ================= DOCK PLAYER ================= -->
+<div class="dock" id="dock" aria-label="Now playing" role="region">
+  <div class="dock__progress" id="dockProgress"><span></span></div>
+  <img class="dock__cover" id="dockImg" alt="" width="44" height="44">
+  <div class="dock__info">
+    <p class="dock__title" id="dockTitle">Rituals of Silence</p>
+    <p class="dock__tags" id="dockTags">Trap / Industrial</p>
+  </div>
+  <canvas class="dock__spectrum" id="dockSpectrum" aria-hidden="true"></canvas>
+  <span class="dock__time" id="dockTime">00:00 / 03:48</span>
+  <div class="dock__controls">
+    <button class="ctrl ctrl--sm dock__prev" type="button" data-action="prev" aria-label="Previous beat">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14"/><path d="M19 5 9 12l10 7z"/></svg>
+    </button>
+    <button class="ctrl ctrl--sm ctrl--play" type="button" data-action="toggle" aria-label="Play">
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15L19.5 12z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14"/><path d="M16 5v14"/></svg>
+    </button>
+    <button class="ctrl ctrl--sm" type="button" data-action="next" aria-label="Next beat">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14"/><path d="M5 5l10 7-10 7z"/></svg>
+    </button>
+  </div>
+  <label class="dock__vol"><span>Vol</span><input type="range" id="volume" min="0" max="100" value="90" aria-label="Volume"></label>
+</div>
+
+<!-- ================= CART ================= -->
+<div class="scrim" id="scrim"></div>
+<aside class="cart" id="cart" aria-label="Cart" aria-hidden="true">
+  <div class="cart__head">
+    <h2 class="cart__title">Cart <span id="cartTitleCount">[0]</span></h2>
+    <button class="cart__close" type="button" id="cartClose" aria-label="Close cart">Close ×</button>
+  </div>
+  <ul class="cart__list" id="cartList"></ul>
+  <p class="cart__empty" id="cartEmpty">Nothing here yet. Press + next to a beat to add it.</p>
+  <div class="cart__foot">
+    <div class="cart__total"><span>Total</span><span id="cartTotal">$0</span></div>
+    <button class="btn btn--full" type="button" id="checkout">Request invoice <span aria-hidden="true">→</span></button>
+    <p class="cart__note" id="checkoutNote">We reply with an invoice and the files. No card details on this site.</p>
+  </div>
+</aside>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+<div class="artifacts" id="artifacts" aria-hidden="true"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/audio.js"></script>
+<script src="assets/js/art.js"></script>
+<script src="assets/js/visuals.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
