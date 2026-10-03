@@ -11,7 +11,7 @@ window.BRND = window.BRND || {};
 
 BRND.config = {
   brand: 'Bronderbility Music',
-  email: 'hello@bronderbility.com',          // replace with the real inbox
+  email: 'info@bronderbility.com',          // replace with the real inbox
   coords: '52.5200° N 13.4050° E',
   currency: '$',
   socials: [
