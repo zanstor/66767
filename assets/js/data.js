@@ -11,8 +11,9 @@ window.BRND = window.BRND || {};
 
 BRND.config = {
   brand: 'Bronderbility Music',
-  email: 'hello@bronderbility.com',          // replace with the real inbox
-  coords: '52.5200° N 13.4050° E',
+  email: 'info@bronderbility.com',          // replace with the real inbox
+  coords: '47.466305° N 10.961714° E', 
+
   currency: '$',
   socials: [
     { id: 'SC', label: 'SoundCloud', url: 'https://soundcloud.com/' },
