@@ -713,11 +713,17 @@
     function ensureMedia() {
       if (media) return media;
       media = new Audio();
-      media.crossOrigin = 'anonymous';
       media.preload = 'metadata';
       media.addEventListener('ended', () => next(true));
       media.addEventListener('loadedmetadata', () => em.emit('load', cur));
-      ctx.createMediaElementSource(media).connect(chain.master);
+      if (location.protocol === 'file:') {
+        /* index.html opened by double-click: browsers forbid analysing local files,
+           so the file plays directly (the analyzers stay in standby). */
+        media.volume = volume;
+      } else {
+        media.crossOrigin = 'anonymous';
+        ctx.createMediaElementSource(media).connect(chain.master);
+      }
       return media;
     }
 
@@ -827,6 +833,7 @@
       volume = U.clamp(v, 0, 1);
       U.store.set('brnd-volume', volume);
       if (chain) chain.master.gain.setTargetAtTime(volume, ctx.currentTime, 0.02);
+      if (media && location.protocol === 'file:') media.volume = volume;
       em.emit('volume', volume);
     }
 
