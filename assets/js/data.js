@@ -58,7 +58,7 @@ BRND.genres = [
    seed    → picks patterns & melodies, so every beat is different but stable
    cover   → generative artwork style (see art.js) */
 BRND.tracks = [
-  { id: 'machine-heart',     title: 'Machine Heart',         genre: 'industrial', style: 'ebm',       tags: ['EBM', 'Industrial'],     bpm: 126, key: 'F',  scale: 'phrygian', duration: 208, price: 29, seed: 11, cover: 'refinery' },
+  { id: 'no-way-out',     title: 'No-Way-Out',         genre: 'Dark electronic, style: 'dark',       tags: ['Dark', 'Electronic'],     bpm: 150, key: 'Am',  scale: 'minor', duration: 167, price: 29, seed: 11, cover: 'refinery', src: 'assets/audio/no-way-out-watermarked.mp3' },
   { id: '808-funeral',       title: '808 Funeral',           genre: 'trap',       style: 'hard',      tags: ['Trap', 'Distorted 808'], bpm: 145, key: 'C#', scale: 'harmonic', duration: 174, price: 29, seed: 23, cover: 'spire' },
   { id: 'cold-signals',      title: 'Cold Signals',          genre: 'industrial', style: 'synthwave', tags: ['Industrial', 'Dark'],    bpm: 118, key: 'D',  scale: 'minor',    duration: 252, price: 29, seed: 37, cover: 'pylon' },
   { id: 'dusted-tape',       title: 'Dusted Tape',           genre: 'boombap',    style: 'lofi',      tags: ['Lo-fi', 'Boom bap'],     bpm: 86,  key: 'A',  scale: 'minor',    duration: 158, price: 29, seed: 41, cover: 'vinyl' },
