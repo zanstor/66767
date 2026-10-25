@@ -52,15 +52,18 @@ BRND.genres = [
 ];
 
 /* Beats.
-   genre   → which generator in audio.js plays it
+   genre   → ONLY one of: 'trap' | 'boombap' | 'industrial' | 'nudisco'
+             (filters and genre cards use it; dark electronic → 'industrial')
    style   → sub-flavour of the generator (see audio.js)
-   key     → root note, scale → minor | harmonic | phrygian | dorian
+   key     → root note: 'A', 'F#', 'Am' and 'Fm' all work
+   scale   → minor | harmonic | phrygian | dorian
+   src     → your mp3 in assets/audio/ (name must match letter for letter)
    seed    → picks patterns & melodies, so every beat is different but stable
    cover   → generative artwork style (see art.js) */
 BRND.tracks = [
-  { id: 'no-way-out',     title: 'No Way Out',         genre: 'Dark electronic, style: 'dark',       tags: ['Dark', 'Electronic'],     bpm: 150, key: 'Am',  scale: 'minor', duration: 167, price: 29, seed: 11, cover: 'refinery', src: 'assets/audio/no-way-out-watermarked.mp3' },
+  { id: 'no-way-out',     title: 'No Way Out',         genre: 'industrial', style: 'dark',       tags: ['Dark', 'Electronic'],     bpm: 150, key: 'Am',  scale: 'minor', duration: 167, price: 29, seed: 11, cover: 'refinery', src: 'assets/audio/no-way-out-watermarked.mp3' },
   { id: 'pain-of-my-life',       title: 'Pain of my life',           genre: 'trap',       style: 'lyrics',      tags: ['Trap', 'lyrics'], bpm: 90, key: 'Dm', scale: 'minor', duration: 218, price: 29, seed: 23, cover: 'spire', src: 'assets/audio/pain-of-my-life-watermarked.mp3' },
-  { id: 'cold-signals',      title: 'Cold Signals',          genre: 'Dark electronic', style: 'Boom bap', tags: ['Electronic', 'Boom bap'],    bpm: 156, key: 'Gm',  scale: 'minor',    duration: 170, price: 29, seed: 37, cover: 'pylon', src: 'assets/audio/revolt-on-the-ship-watermarked.mp3' },
+  { id: 'cold-signals',      title: 'Cold Signals',          genre: 'industrial', style: 'Boom bap', tags: ['Electronic', 'Boom bap'],    bpm: 156, key: 'Gm',  scale: 'minor',    duration: 170, price: 29, seed: 37, cover: 'pylon', src: 'assets/audio/revolt-on-the-ship-watermarked.mp3' },
   { id: 'dusted-tape',       title: 'Dusted Tape',           genre: 'boombap',    style: 'lofi',      tags: ['Lo-fi', 'Boom bap'],     bpm:140,  key: 'Fm',  scale: 'minor',    duration: 108, price: 29, seed: 41, cover: 'vinyl', src: 'assets/audio/Spice-Dimond-watermarked.mp3' }
 ];
 

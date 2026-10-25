@@ -10,7 +10,8 @@
   const TRK = Object.fromEntries(B.tracks.map((t) => [t.id, t]));
   const KIT = Object.fromEntries(B.kits.map((k) => [k.id, k]));
   const GEN = Object.fromEntries(B.genres.map((g) => [g.id, g]));
-  const keyLabel = (t) => t.key + ' ' + (t.scale === 'dorian' ? 'dor' : t.scale === 'phrygian' ? 'phr' : 'min');
+  const keyRoot = (k) => String(k || '').trim().replace(/\s*(minor|min|m)$/i, '');
+  const keyLabel = (t) => keyRoot(t.key) + ' ' + (t.scale === 'dorian' ? 'dor' : t.scale === 'phrygian' ? 'phr' : 'min');
   const cover = (item, size) => A.cover(item.seed, item.cover, size || 192, size || 192);
 
   const state = {
@@ -55,6 +56,7 @@
     const opts = [{ id: 'all', title: 'All' }].concat(B.genres);
     opts.forEach((g) => {
       const n = g.id === 'all' ? B.tracks.length : B.tracks.filter((t) => t.genre === g.id).length;
+      if (!n) return; // no beats in this genre yet: no empty filter
       const b = U.el('button', { class: 'filter', type: 'button', 'data-filter': g.id, 'aria-pressed': 'false' });
       b.append(document.createTextNode(g.title), U.el('span', { class: 'filter__n', text: String(n).padStart(2, '0') }));
       filters.append(b);
@@ -347,6 +349,7 @@
       $('.genre__sub', card).textContent = g.sub;
       $('.genre__desc', card).textContent = g.desc;
       $('[data-play-genre]', card).textContent = 'Play ' + g.title;
+      if (!count) { $('.genre__actions', card).hidden = true; $('.genre__count', card).textContent = 'Coming soon'; }
       const it = V.add($('canvas', card), V.draw.genre, { data: { genre: g.id } });
       card.addEventListener('pointerenter', () => { it.data.hover = true; });
       card.addEventListener('pointerleave', () => { it.data.hover = false; });
@@ -367,7 +370,7 @@
     $$('.genre').forEach((card) => {
       const on = !!cur && cur.genre === card.dataset.genre && P.playing;
       card.classList.toggle('is-active', on);
-      $('.genre__count', card).hidden = on;
+      if (!$('.genre__actions', card).hidden) $('.genre__count', card).hidden = on;
       $('[data-play-genre]', card).textContent = (on ? 'Pause ' : 'Play ') + GEN[card.dataset.genre].title;
     });
   }

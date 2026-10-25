@@ -659,7 +659,8 @@
 
   function makeSong(track) {
     if (songCache.has(track.id)) return songCache.get(track.id);
-    const pc = KEY[track.key] == null ? 0 : KEY[track.key];
+    const root = String(track.key || '').trim().replace(/\s*(minor|min|m)$/i, '');
+    const pc = KEY[root] == null ? 0 : KEY[root];
     const stepDur = 60 / track.bpm / 4;
     const song = {
       track, seed: track.seed || 1, bpm: track.bpm, stepDur, pc, scale: track.scale || 'minor', swing: 0, fx: {},
