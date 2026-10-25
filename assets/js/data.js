@@ -58,19 +58,10 @@ BRND.genres = [
    seed    → picks patterns & melodies, so every beat is different but stable
    cover   → generative artwork style (see art.js) */
 BRND.tracks = [
-  { id: 'no-way-out',     title: 'No-Way-Out',         genre: 'Dark electronic, style: 'dark',       tags: ['Dark', 'Electronic'],     bpm: 150, key: 'Am',  scale: 'minor', duration: 167, price: 29, seed: 11, cover: 'refinery', src: 'assets/audio/no-way-out-watermarked.mp3' },
-  { id: '808-funeral',       title: '808 Funeral',           genre: 'trap',       style: 'hard',      tags: ['Trap', 'Distorted 808'], bpm: 145, key: 'C#', scale: 'harmonic', duration: 174, price: 29, seed: 23, cover: 'spire' },
-  { id: 'cold-signals',      title: 'Cold Signals',          genre: 'industrial', style: 'synthwave', tags: ['Industrial', 'Dark'],    bpm: 118, key: 'D',  scale: 'minor',    duration: 252, price: 29, seed: 37, cover: 'pylon' },
-  { id: 'dusted-tape',       title: 'Dusted Tape',           genre: 'boombap',    style: 'lofi',      tags: ['Lo-fi', 'Boom bap'],     bpm: 86,  key: 'A',  scale: 'minor',    duration: 158, price: 29, seed: 41, cover: 'vinyl' },
-  { id: 'broken-system',     title: 'Broken System',         genre: 'industrial', style: 'techno',    tags: ['EBM', 'Techno'],         bpm: 128, key: 'G',  scale: 'phrygian', duration: 236, price: 29, seed: 53, cover: 'city' },
-  { id: 'chrome-sunset',     title: 'Chrome Sunset',         genre: 'nudisco',    style: 'disco',     tags: ['Nu-disco', 'Synth'],     bpm: 116, key: 'E',  scale: 'dorian',   duration: 220, price: 29, seed: 67, cover: 'grid' },
-  { id: 'concrete-ice',      title: 'Concrete Ice',          genre: 'trap',       style: 'dark',      tags: ['Trap', 'Dark'],          bpm: 138, key: 'G#', scale: 'minor',    duration: 192, price: 29, seed: 71, cover: 'city' },
-  { id: 'empty-streets',     title: 'Empty Streets',         genre: 'industrial', style: 'ambient',   tags: ['Industrial', 'Ambient'], bpm: 96,  key: 'B',  scale: 'minor',    duration: 321, price: 29, seed: 83, cover: 'tvtower' },
-  { id: 'lowrider-transmission', title: 'Lowrider Transmission', genre: 'nudisco', style: 'gfunk', tags: ['G-funk', 'West coast'],    bpm: 94,  key: 'F',  scale: 'dorian',   duration: 202, price: 29, seed: 97, cover: 'palms' },
-  { id: 'no-signal',         title: 'No Signal',             genre: 'trap',       style: 'electro',   tags: ['Trap', 'Electronic'],    bpm: 150, key: 'A#', scale: 'harmonic', duration: 167, price: 29, seed: 101, cover: 'pylon' },
-  { id: 'basement-94',       title: 'Basement 94',           genre: 'boombap',    style: 'dusty',     tags: ['Boom bap', 'Vinyl'],     bpm: 90,  key: 'D',  scale: 'dorian',   duration: 185, price: 29, seed: 113, cover: 'vinyl' },
-  { id: 'night-drive-protocol', title: 'Night Drive Protocol', genre: 'industrial', style: 'synthwave', tags: ['Synthwave', 'Dark'],  bpm: 106, key: 'C',  scale: 'minor',    duration: 214, price: 29, seed: 127, cover: 'grid' },
-  { id: 'rituals-of-silence', title: 'Rituals of Silence',   genre: 'trap',       style: 'dark',      tags: ['Trap', 'Industrial'],    bpm: 140, key: 'F',  scale: 'harmonic', duration: 228, price: 29, seed: 7,  cover: 'spire', featured: true }
+  { id: 'no-way-out',     title: 'No Way Out',         genre: 'Dark electronic, style: 'dark',       tags: ['Dark', 'Electronic'],     bpm: 150, key: 'Am',  scale: 'minor', duration: 167, price: 29, seed: 11, cover: 'refinery', src: 'assets/audio/no-way-out-watermarked.mp3' },
+  { id: 'pain-of-my-life',       title: 'Pain of my life',           genre: 'trap',       style: 'lyrics',      tags: ['Trap', 'lyrics'], bpm: 90, key: 'Dm', scale: 'minor', duration: 218, price: 29, seed: 23, cover: 'spire', src: 'assets/audio/pain-of-my-life-watermarked.mp3' },
+  { id: 'cold-signals',      title: 'Cold Signals',          genre: 'Dark electronic', style: 'Boom bap', tags: ['Electronic', 'Boom bap'],    bpm: 156, key: 'Gm',  scale: 'minor',    duration: 170, price: 29, seed: 37, cover: 'pylon', src: 'assets/audio/revolt-on-the-ship-watermarked.mp3' },
+  { id: 'dusted-tape',       title: 'Dusted Tape',           genre: 'boombap',    style: 'lofi',      tags: ['Lo-fi', 'Boom bap'],     bpm:140,  key: 'Fm',  scale: 'minor',    duration: 108, price: 29, seed: 41, cover: 'vinyl', src: 'assets/audio/Spice-Dimond-watermarked.mp3' }
 ];
 
 /* Sound kits (samples & loops). Sold as a single file, no license tiers. */
