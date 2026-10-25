@@ -63,8 +63,8 @@ BRND.genres = [
 BRND.tracks = [
   { id: 'no-way-out',     title: 'No Way Out',         genre: 'industrial', style: 'dark',       tags: ['Dark', 'Electronic'],     bpm: 150, key: 'Am',  scale: 'minor', duration: 167, price: 29, seed: 11, cover: 'refinery', src: 'assets/audio/no-way-out-watermarked.mp3' },
   { id: 'pain-of-my-life',       title: 'Pain of my life',           genre: 'trap',       style: 'lyrics',      tags: ['Trap', 'lyrics'], bpm: 90, key: 'Dm', scale: 'minor', duration: 218, price: 29, seed: 23, cover: 'spire', src: 'assets/audio/pain-of-my-life-watermarked.mp3' },
-  { id: 'cold-signals',      title: 'Cold Signals',          genre: 'industrial', style: 'Boom bap', tags: ['Electronic', 'Boom bap'],    bpm: 156, key: 'Gm',  scale: 'minor',    duration: 170, price: 29, seed: 37, cover: 'pylon', src: 'assets/audio/revolt-on-the-ship-watermarked.mp3' },
-  { id: 'dusted-tape',       title: 'Dusted Tape',           genre: 'boombap',    style: 'lofi',      tags: ['Lo-fi', 'Boom bap'],     bpm:140,  key: 'Fm',  scale: 'minor',    duration: 108, price: 29, seed: 41, cover: 'vinyl', src: 'assets/audio/Spice-Dimond-watermarked.mp3' }
+  { id: 'revolt-on-the-ship',      title: 'Revolt on the ship',          genre: 'industrial', style: 'Boom bap', tags: ['Electronic', 'Boom bap'],    bpm: 156, key: 'Gm',  scale: 'minor',    duration: 170, price: 29, seed: 37, cover: 'pylon', src: 'assets/audio/revolt-on-the-ship-watermarked.mp3' },
+  { id: 'spice-dimond',       title: 'Spice Dimond',           genre: 'boombap',    style: 'lofi',      tags: ['Lo-fi', 'Boom bap'],     bpm:140,  key: 'Fm',  scale: 'minor',    duration: 108, price: 29, seed: 41, cover: 'vinyl', src: 'assets/audio/Spice-Dimond-watermarked.mp3' }
 ];
 
 /* Sound kits (samples & loops). Sold as a single file, no license tiers. */
